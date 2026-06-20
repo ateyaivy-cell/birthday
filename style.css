@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, blue 0%, rgb(172, 103, 114) 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+
+.gift-container {
+    cursor: pointer;
+    touch-action: manipulation;
+    position: relative;
+    z-index: 10;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.gift-box {
+    width: 140px;
+    height: 140px;
+    background-color: rgb(235, 110, 131);
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(255, 51, 133, 0.3);
+}
+
+
+.ribbon-h, .ribbon-v {
+    background-color: rgb(255, 230, 234); 
+    position: absolute;
+}
+.ribbon-h { width: 100%; height: 20px; top: 60px; left: 0; }
+.ribbon-v { width: 20px; height: 100%; left: 60px; top: 0; }
+
+.bow {
+    width: 40px;
+    height: 40px;
+    background-color: blue;
+    border-radius: 50%;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 11;
+}
+
+.tap-text {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    animation: bounce 1.5s infinite;
+}
+
+
+.gift-container.open {
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+#message-content {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s ease;
+    position: absolute;
+    width: 90%;
+    max-width: 400px;
+}
+
+#message-content.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.main-title {
+    font-size: 2.5rem;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.personal-note {
+    font-size: 1.2rem;
+    color: purple;
+    line-height: 1.6;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
