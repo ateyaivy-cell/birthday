@@ -1,7 +1,7 @@
 const giftContainer = document.getElementById('giftBox');
 const messageContent = document.getElementById('message-content');
 
-// Gorgeous girly celebration colors
+
 const partyColors = ['pink', 'blue', 'yellow', 'red', 'white'];
 
 
@@ -9,7 +9,7 @@ giftContainer.addEventListener('touchstart', () => {
     openGift();
 });
 
-// Laptop click
+
 giftContainer.addEventListener('click', () => {
     openGift();
 });
@@ -21,24 +21,23 @@ function openGift() {
         messageContent.classList.add('show');
     }, 250);
     
-    // Fire them immediately the first time!
+    
     launchBalloons();
     triggerCelebrationEffects();
 
-    // 🌟 THE INFINITE LOOP TRICK 🌟
-    // This keeps launching balloons every 3.5 seconds
+    
     setInterval(() => {
         launchBalloons();
     }, 3500);
 
-    // This keeps blasting fresh sparkles every 1.5 seconds
+    
     setInterval(() => {
         triggerCelebrationEffects();
     }, 1500);
 }
 
 function launchBalloons() {
-    // We reduced the count slightly per wave so it doesn't lag the phone over time
+    
     for (let i = 0; i < 8; i++) { 
         setTimeout(() => {
             const balloon = document.createElement('div');
@@ -57,7 +56,7 @@ function launchBalloons() {
                 balloon.style.opacity = '0';
             }, 50);
             
-            // This safely deletes the old balloons from the background so the phone stays fast
+            
             setTimeout(() => balloon.remove(), 4000);
         }, i * 300);
     }
@@ -72,7 +71,7 @@ function triggerCelebrationEffects() {
         spark.style.backgroundColor = partyColors[Math.floor(Math.random() * partyColors.length)];
         spark.style.borderRadius = '50%';
         
-        // Randomize WHERE the fireworks explode on the screen so it's not just the center
+        
         spark.style.left = Math.random() * 100 + 'vw';
         spark.style.top = Math.random() * 80 + 'vh';
         spark.style.zIndex = '12';
